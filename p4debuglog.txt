@@ -1,0 +1,159 @@
+ gcc -g p4original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8f6: file p4original.c, line 34.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p4original.c:34
+34  {
+(gdb) n
+35    int n=input_array_size();
+(gdb) s
+input_array_size () at p4original.c:3
+3   {
+(gdb) n
+5     printf("Enter the size of the array\n ");
+(gdb) n
+Enter the size of the array
+6     scanf("%d",&n);
+(gdb) n
+ 4
+7     return n;
+(gdb) n
+8   }
+(gdb) n
+main () at p4original.c:36
+36    int a[n];
+(gdb) p n
+$1 = 4
+(gdb) n
+37    input_array(n,a);
+(gdb) s
+input_array (n=4, a=0x7ffce470f060) at p4original.c:11
+11    printf("Enter the elements:\n");
+(gdb) n
+Enter the elements:
+12    for(int i=0;i<n;i++)
+(gdb) n
+14      scanf("%d",&a[i]);
+(gdb) n
+4
+12    for(int i=0;i<n;i++)
+(gdb) n
+14      scanf("%d",&a[i]);
+(gdb) p i
+$2 = 1
+(gdb) n
+6
+12    for(int i=0;i<n;i++)
+(gdb) n
+14      scanf("%d",&a[i]);
+(gdb) p i
+$3 = 2
+(gdb) n
+9
+12    for(int i=0;i<n;i++)
+(gdb) n
+14      scanf("%d",&a[i]);
+(gdb) p i
+$4 = 3
+(gdb) n
+8
+12    for(int i=0;i<n;i++)
+(gdb) n
+16  }
+(gdb) n
+main () at p4original.c:38
+38    int s=sum_n_arrays(n,a);
+(gdb) s
+sum_n_arrays (n=4, a=0x7ffce470f060) at p4original.c:19
+19    int s=0;
+(gdb) n
+20    for(int i=0;i<n;i++)
+(gdb) n
+22      s+=a[i];
+(gdb) p i
+$5 = 0
+(gdb) n
+20    for(int i=0;i<n;i++)
+(gdb) p s
+$6 = 4
+(gdb) n
+22      s+=a[i];
+(gdb) p i
+$7 = 1
+(gdb) n
+20    for(int i=0;i<n;i++)
+(gdb) p s
+$8 = 10
+(gdb) n
+22      s+=a[i];
+(gdb) p i
+$9 = 2
+(gdb) n
+20    for(int i=0;i<n;i++)
+(gdb) p s
+$10 = 19
+(gdb) n
+22      s+=a[i];
+(gdb) p i
+$11 = 3
+(gdb) n
+20    for(int i=0;i<n;i++)
+(gdb) p s
+$12 = 27
+(gdb) n
+24    return s;
+(gdb) n
+25  }
+(gdb) n
+main () at p4original.c:39
+39    out_put(n,a,s);
+(gdb) s
+out_put (n=4, a=0x7ffce470f060, sum=27) at p4original.c:29
+29    for(i=0;i<n-1;i++)
+(gdb) n
+30      printf("%d+",a[i]);
+(gdb) n
+29    for(i=0;i<n-1;i++)
+(gdb) n
+30      printf("%d+",a[i]);
+(gdb) n
+29    for(i=0;i<n-1;i++)
+(gdb) n
+30      printf("%d+",a[i]);
+(gdb) n
+29    for(i=0;i<n-1;i++)
+(gdb) n
+31    printf("%d is %d",a[i],sum);
+(gdb) n
+32  }
+(gdb) n
+main () at p4original.c:40
+40    return 0;
+(gdb) n
+41  }(gdb) n
+__libc_start_main (main=0x55e8454008e5 <main>, argc=1, argv=0x7ffce470f1b8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffce470f1a8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+4+6+9+8 is 27[Inferior 1 (process 704) exited normally]
+(gdb) q
