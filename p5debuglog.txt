@@ -1,0 +1,96 @@
+gcc -g p8final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8ac: file p8final.c, line 28.
+(gdb) r
+Starting program: /home/runner/pps-test1-Kumaraswamy12-8/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p8final.c:28
+28    a=input();
+(gdb) s
+input () at p8final.c:3
+3   {
+(gdb) n
+5     printf("Enter the value\n");
+(gdb) n
+Enter the value
+6     scanf("%f",&a);
+(gdb) n
+9
+7     return a;
+(gdb) p a
+$1 = 9
+(gdb) n
+8   }
+(gdb) n
+main () at p8final.c:29
+29    sq=my_sqrt(a);
+(gdb) s
+my_sqrt (n=9) at p8final.c:11
+11    float i=0.0,j=0.0,b=0.0;
+(gdb) n
+12     for(i=1;i<=n;i++)
+(gdb) n
+14      n-=i;
+(gdb) n
+15      j++;i++;
+(gdb) n
+12     for(i=1;i<=n;i++)
+(gdb) n
+14      n-=i;
+(gdb) n
+15      j++;i++;
+(gdb) n
+12     for(i=1;i<=n;i++)
+(gdb) n
+14      n-=i;
+(gdb) n
+15      j++;i++;
+(gdb) n
+12     for(i=1;i<=n;i++)
+(gdb) n
+17       b=(n/i);
+(gdb) n
+18       b+=j;
+(gdb) n
+19      return b;
+(gdb) n
+20  }
+(gdb) p b
+$2 = 3
+(gdb) n
+main () at p8final.c:30
+30    output(a,sq);
+(gdb) s
+output (n=9, sqrt_result=3) at p8final.c:23
+23    printf("The square root of %.2f is %.2f\n",n,sqrt_result);
+(gdb) n
+The square root of 9.00 is 3.00
+24  }
+(gdb) n
+main () at p8final.c:31
+31    return 0;
+(gdb) c
+Continuing.
+[Inferior 1 (process 49) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) c
+The program is not being run.
+(gdb) q
