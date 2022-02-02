@@ -1,2 +1,2 @@
-language = "C"
+language = "c"
 run = "gcc -g p1final.c"
